@@ -63,7 +63,14 @@ extension TabModule {
             }
             
             if let module = self?.subModules?[index] {
-                module.executor(request: request).run { responder.result($0) }
+                module.executor(request: request).run {
+                    switch $0 {
+                    case .success(let value):
+                        responder.success(value: value)
+                    case .failure(let error):
+                        responder.failure(error: error)
+                    }
+                }
             } else {
                 responder.failure(error: ModuleError.wrongValue("no module at index \(index)", "index"))
             }

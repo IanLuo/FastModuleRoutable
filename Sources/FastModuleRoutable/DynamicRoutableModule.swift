@@ -13,7 +13,7 @@ import FastModuleLayoutable
 public class DynamicDynamicModule: DynamicLayoutableModule, Routable {
     public var viewController: UIViewController = UIViewController()
     
-    public override class var identifier: String { return "~routable" }
+    public override class var identifier: String { return FastModule.dynamicNameRoutableModule }
     
     public required init(request: Request) {
         super.init(request: request)

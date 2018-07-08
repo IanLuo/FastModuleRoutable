@@ -10,8 +10,8 @@ PODS:
     - Yoga (~> 1.8.1)
 
 DEPENDENCIES:
-  - FastModule (from `../FastModule`)
-  - FastModuleLayoutable (from `../FastModuleLayoutable`)
+  - "FastModule (from `git@github.com:IanLuo/FastModule.git`)"
+  - "FastModuleLayoutable (from `git@github.com:IanLuo/FastModuleLayoutable.git`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,17 +21,25 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   FastModule:
-    :path: "../FastModule"
+    :git: "git@github.com:IanLuo/FastModule.git"
   FastModuleLayoutable:
-    :path: "../FastModuleLayoutable"
+    :git: "git@github.com:IanLuo/FastModuleLayoutable.git"
+
+CHECKOUT OPTIONS:
+  FastModule:
+    :commit: b46ed9cf24d218a8804f3f864b0fac6c893b55fe
+    :git: "git@github.com:IanLuo/FastModule.git"
+  FastModuleLayoutable:
+    :commit: 60dc0c08370e9893c4757ebbd633c6c91f172da2
+    :git: "git@github.com:IanLuo/FastModuleLayoutable.git"
 
 SPEC CHECKSUMS:
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
-  FastModule: 8889a8794a6adcf8d678769c7a551236d11d5071
-  FastModuleLayoutable: 9316c4ec8302259887414a8387abda9a68b396b3
+  FastModule: 02b49485888287dbb7b246611e28ca006b927776
+  FastModuleLayoutable: 163fad52b5241e2d07ce5eafff950f32196b26bb
   Yoga: e6f1fed82138c17da5332e15e5770abf0e9cc386
   YogaKit: bb90d11e297e06abef7e0cfb20e035a6bd00cdc4
 
-PODFILE CHECKSUM: df40484f3da8d4c4f9255d5ab010cf9a16976c5b
+PODFILE CHECKSUM: 9afd148155c7bd64355330c027215dbee2faf155
 
 COCOAPODS: 1.5.3
