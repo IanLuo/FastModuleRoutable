@@ -40,13 +40,13 @@ public struct RoutableModuleDescriptor: DynamicModuleDescriptorProtocol {
     }
     
     public func request(request: Request) -> Request {
+        ModuleContext.register(identifier: request.module, type: DynamicRoutableModule.self)
         var newRequest = request
         newRequest[FastModule.keyParameterActionBindInjectedBindingsGeneralActions] = generatorAction
         return newRequest
     }
     
     public func instance(request: Request) -> Routable {
-        ModuleContext.register(identifier: request.module, type: DynamicRoutableModule.self)
         return ModuleContext.request(self.request(request: request)) as! Routable
     }
 }
