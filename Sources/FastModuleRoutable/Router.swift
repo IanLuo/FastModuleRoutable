@@ -17,11 +17,18 @@ public enum RouterAction: String {
     case didShow
 }
 
+/// combines push and present into a single show function
+/// push and present is not only different animation, push means in the same navigation stack, while present is a modal
 public class Router: NSObject {
     private static var instance = Router()
+    
+    /// use this to get the instance of router
     public static var shared: Router { return instance }
     
+    /// bottom most routable
     public var root: Routable?
+    
+    /// all modals, order means the present order
     public var modals: [Routable] = []
     
     private var topMost: Routable? {
@@ -34,6 +41,7 @@ public class Router: NSObject {
         }
     }
     
+    /// the routable that at the top of modal and top of navigation stack
     public func topMost(root: Routable) -> Routable {
         if let nav = root as? NavigationModule {
             return nav.proceedRoutables.last ?? nav
@@ -49,10 +57,15 @@ public class Router: NSObject {
         }
     }
     
+    /// transfer style
     public enum Style {
+        /// only for the first for each window
         case root(UIWindow)
+        /// push onto the navigation stack
         case push(Bool)
+        /// add to modal
         case present(Bool)
+        /// push onto the navigation stack with custom animation
         case custom(CustomizedRouterAnimator)
     }
     
@@ -158,12 +171,14 @@ public class Router: NSObject {
 }
 
 extension UINavigationController {
+    /// when called on a navigationController instance, return self
     open override var navigationController: UINavigationController? {
         return self
     }
 }
 
 extension UITabBarController {
+    /// when called on a tabBarController, return self
     open override var tabBarController: UITabBarController? {
         return self
     }
